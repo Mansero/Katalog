@@ -5,61 +5,69 @@ import com.example.Catalog.enums.GenreEnum;
 public class Book {
 
     //Attribute
-  String titel;
+  String title;
   String author;
-  int ISBN;
+  String isbn;
   int pages;
   GenreEnum genre;
-
+  String description;
 
   //Constructor
-  public Book(String titel, String author, int ISBN, int pages, GenreEnum genre) {
-      this.titel = titel;
+  public Book(String title, String author, String isbn, int pages, GenreEnum genre, String description) {
+      this.title = title;
       this.author = author;
-      this.ISBN = ISBN;
+      this.isbn = isbn;
       this.pages = pages;
       this.genre = genre;
+      this.description = description;
   }
-
 
   //Getter&Setter
-  public String getTitel() {
-      return titel;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public void setTitel(String titel) {
-      this.titel = titel;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public String getAuthor() {
-      return author;
-  }
+    public String getAuthor() {
+        return author;
+    }
 
-  public void setAuthor(String author) {
-      this.author = author;
-  }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-  public int getISBN() {
-      return ISBN;
-  }
+    public String getIsbn() {
+        return isbn;
+    }
 
-  public void setISBN(int ISBN) {
-      this.ISBN = ISBN;
-  }
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
-  public int getPages() {
-      return pages;
-  }
+    public int getPages() {
+        return pages;
+    }
 
-  public void setPages(int pages) {
-      this.pages = pages;
-  }
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
 
-  public GenreEnum getGenre() {
-      return genre;
-  }
+    public GenreEnum getGenre() {
+        return genre;
+    }
 
-  public void setGenre(GenreEnum genre) {
-      this.genre = genre;
-  }
+    public void setGenre(GenreEnum genre) {
+        this.genre = genre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
