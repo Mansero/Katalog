@@ -13,13 +13,13 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-  String title;
-  String author;
-  String isbn;
-  int pages;
-  GenreEnum genre;
-  String description;
-  double price;
+    String title;
+    String author;
+    String isbn;
+    int pages;
+    GenreEnum genre;
+    String description;
+    double price;
 
   //Constructor
   public Book(String title, String author, String isbn, int pages, GenreEnum genre, String description, double price) {
