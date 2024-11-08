@@ -32,7 +32,6 @@ public class BookController {
         List<Book> books = bookRepository.searchBooks(searchTerm);
         model.addAttribute("books", books);
         return "bookSearch";
-       // return ResponseEntity.ok(books);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
