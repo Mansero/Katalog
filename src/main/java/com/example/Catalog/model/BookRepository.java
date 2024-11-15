@@ -1,7 +1,9 @@
 package com.example.Catalog.model;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+
 import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,9 @@ import java.util.stream.Collectors;
 public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findByTitleContainingIgnoreCase(String title);
+
     List<Book> findByDescriptionContainingIgnoreCase(String description);
+
     List<Book> findByAuthorContainingIgnoreCase(String author);
 
     default List<Book> searchBooks(String searchTerm) {

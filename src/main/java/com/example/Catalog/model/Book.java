@@ -1,4 +1,5 @@
 package com.example.Catalog.model;
+
 import com.example.Catalog.enums.GenreEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,16 +22,16 @@ public class Book {
     String description;
     double price;
 
-  //Constructor
-  public Book(String title, String author, String isbn, int pages, GenreEnum genre, String description, double price) {
-      this.title = title;
-      this.author = author;
-      this.isbn = isbn;
-      this.pages = pages;
-      this.genre = genre;
-      this.description = description;
-      this.price = price;
-  }
+    //Constructor
+    public Book(String title, String author, String isbn, int pages, GenreEnum genre, String description, double price) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.pages = pages;
+        this.genre = genre;
+        this.description = description;
+        this.price = price;
+    }
 
     public Book() {
     }
@@ -83,10 +84,12 @@ public class Book {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public double getPrice() {
-      return price;
+        return price;
     }
+
     public void setPrice(double price) {
-      this.price = price;
+        this.price = price;
     }
 }
