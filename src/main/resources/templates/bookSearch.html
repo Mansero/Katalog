@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Bücher Suchen</title>
-</head>
+<head th:insert="header :: header">  </head>
 <body>
+<div th:insert="navbar :: navbar">  </div>
 <h1>Bücher Suchen</h1>
 
 <form th:action="@{/books/search}" method="get">
@@ -21,5 +20,8 @@
         <small th:text="${book.description}"></small>
     </li>
 </ul>
+
+<footer th:insert="footer :: footer">  </footer>
+
 </body>
 </html>
