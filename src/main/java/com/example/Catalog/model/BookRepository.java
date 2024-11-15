@@ -13,7 +13,9 @@ import java.util.stream.Collectors;
 public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findByTitleContainingIgnoreCase(String title);
+
     List<Book> findByDescriptionContainingIgnoreCase(String description);
+
     List<Book> findByAuthorContainingIgnoreCase(String author);
 
     default List<Book> searchBooks(String searchTerm) {
