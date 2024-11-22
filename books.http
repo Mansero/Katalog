@@ -26,6 +26,21 @@ Content-Type: application/json
   "description": "Dieses Handbuch zeigt Ihnen wie Sie sich ohne Vorkenntnisse alle wichtigen Programmiergrundlagen und Java spezifischen Inhalte aneignen, um eigene Anwendungen programmieren zu können.",
   "price": 21.90
 }
+
+### Create Book2
+POST http://localhost:8080/books
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "Phyton Programmieren für Einsteiger",
+  "author": "Simon Flaig",
+  "isbn":"978-94-036-8033-0",
+  "pages": 140,
+  "genre": "GUIDE",
+  "description": "Dieses Handbuch zeigt Ihnen wie Sie sich ohne Vorkenntnisse alle wichtigen Programmiergrundlagen und Java spezifischen Inhalte aneignen, um eigene Anwendungen programmieren zu können.",
+  "price": 21.90
+}
 ### GetAllBooks
 GET http://localhost:8080/books
 
