@@ -1,25 +1,38 @@
 package com.example.Catalog.model;
 
 import com.example.Catalog.enums.GenreEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.util.UUID;
 
 
 @Entity
+@Table(name="books")
 public class Book {
 
     //Attribute
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "id")
+    UUID id;
+    @Column(name = "title")
     String title;
+    @Column(name = "author")
     String author;
+    @Column(name = "isbn")
     String isbn;
+    @Column(name = "pages")
     int pages;
+    @Column(name = "genre")
     GenreEnum genre;
+    @Column(name = "description")
     String description;
+    @Column(name = "price")
     double price;
 
     //Constructor
