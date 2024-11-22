@@ -2,37 +2,28 @@ package com.example.Catalog.controllers;
 
 import com.example.Catalog.model.Book;
 import com.example.Catalog.model.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("books")
-@Controller
+@RestController
 public class BookController {
 
     private final BookRepository bookRepository;
 
-    @Autowired
     public BookController(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
-    @GetMapping("/all")
-    public String getAllBooks(Model model) {
-        List<Book> books = bookRepository.findAll();
-        model.addAttribute("books", books);
-        return "bookList";
+    @GetMapping("api/all")
+    List<Book> findAll(){
+        return bookRepository.findAll();
     }
 
-    @GetMapping("/search")
-    public String searchBooks(Model model, String searchTerm) {
-        List<Book> books = bookRepository.searchBooks(searchTerm);
-        model.addAttribute("books", books);
-        return "bookSearch";
+    @GetMapping("api/search")
+    List<Book> searchBooks(String searchTerm){
+    return bookRepository.searchBooks(searchTerm);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
