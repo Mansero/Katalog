@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("api/books")
 public class BookController {
 
     private final BookRepository bookRepository;
@@ -17,17 +18,17 @@ public class BookController {
         this.bookRepository = bookRepository;
     }
 
-    @GetMapping("api/all")
+    @GetMapping("/all")
     List<Book> findAll(){
         return bookRepository.findAll();
     }
 
-    @GetMapping("api/search")
+    @GetMapping("/search")
     List<Book> searchBooks(String searchTerm){
     return bookRepository.searchBooks(searchTerm);
     }
 
-    @GetMapping("api/books/{isbn}")
+    @GetMapping("/{isbn}")
     ResponseEntity<Book> get(@PathVariable String isbn) {
         return bookRepository.findById(isbn)
                 .map(ResponseEntity::ok)
