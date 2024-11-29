@@ -6,11 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, UUID> {
+public interface BookRepository extends JpaRepository<Book, String> {
 
     List<Book> findByTitleContainingIgnoreCase(String title);
 
@@ -33,6 +34,7 @@ public interface BookRepository extends JpaRepository<Book, UUID> {
                 .distinct()
                 .collect(Collectors.toList());
     }
+
 }
 
 

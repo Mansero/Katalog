@@ -2,9 +2,6 @@ package com.example.Catalog.model;
 
 import com.example.Catalog.enums.GenreEnum;
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
-
-import java.util.UUID;
 
 
 @Entity
@@ -12,18 +9,11 @@ import java.util.UUID;
 public class Book {
 
     //Attribute
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(name = "id")
-    UUID id;
     @Column(name = "title")
     String title;
     @Column(name = "author")
     String author;
+    @Id
     @Column(name = "isbn")
     String isbn;
     @Column(name = "pages")
