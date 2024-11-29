@@ -3,6 +3,7 @@ package com.example.Catalog.controllers;
 import com.example.Catalog.model.Book;
 import com.example.Catalog.model.BookRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,13 @@ public class BookController {
     @GetMapping("api/search")
     List<Book> searchBooks(String searchTerm){
     return bookRepository.searchBooks(searchTerm);
+    }
+
+    @GetMapping("api/books/{isbn}")
+    ResponseEntity<Book> get(@PathVariable String isbn) {
+        return bookRepository.findById(isbn)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @ResponseStatus(HttpStatus.CREATED)
