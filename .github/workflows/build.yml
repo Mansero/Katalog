@@ -40,5 +40,6 @@ jobs:
               mvn clean package -B
               mvn spring-boot:build-image
 
+
       -   name: Display build status
           run: echo "Build completed successfully"
