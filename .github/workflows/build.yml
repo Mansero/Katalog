@@ -38,8 +38,14 @@ jobs:
       -   name: Maven Build, Test, and Create Docker Image
           run: |
               mvn clean package -B
-              mvn spring-boot:build-image
+              mvn spring-boot:build-image -Dspring-boot.build-image.imageName=catalog/order:0.0.1-SNAPSHOT
 
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: mansero/catalog:0.0.1-SNAPSHOT
 
       -   name: Display build status
           run: echo "Build completed successfully"
