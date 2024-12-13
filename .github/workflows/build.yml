@@ -37,11 +37,7 @@ jobs:
 
       -   name: Maven Build, Test, and Create Docker Image
           run: |
-              mvn clean package -B
-            mvn spring-boot:build-image \
-              -Dspring-boot.build-image.imageName=catalog/order:0.0.1-SNAPSHOT \
-              -DskipTests  \
-              -Dspring.profiles.active=h2              
+            mvn spring-boot:build-image -Dspring-boot.build-image.imageName=catalog/order:0.0.1-SNAPSHOT -DskipTest -Dspring.profiles.active=h2
             docker push mansero/catalog:0.0.1-SNAPSHOT
 
       -   name: Display build status
