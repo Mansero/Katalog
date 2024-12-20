@@ -39,6 +39,9 @@ jobs:
           run: |
             mvn spring-boot:build-image -Dspring-boot.build-image.imageName=catalog/order:0.0.1-SNAPSHOT -DskipTest -Dspring.profiles.active=h2
             docker push mansero/catalog:0.0.1-SNAPSHOT
+      -   name: Jacoco Code Coverage report
+          run: |
+            mvn jacoco:report
 
       -   name: Display build status
           run: echo "Build completed successfully"
