@@ -1,5 +1,6 @@
 package com.example.Catalog;
 
+import com.example.Catalog.enums.GenreEnum;
 import com.example.Catalog.model.Book;
 import com.example.Catalog.model.BookRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,14 +37,23 @@ public class BookControllerWebMvcTest {
         public void searchBooksTest() throws Exception {
             //Create Books
             Book book1 = new Book();
+            book1.setIsbn("784827138-2");
+            book1.setPages(938);
+            book1.setGenre(GenreEnum.THRILLER);
+            book1.setPrice(74.95);;
             book1.setTitle("Spring Boot in Action");
             book1.setDescription("Comprehensive guide to Spring Boot");
             book1.setAuthor("Craig Walls");
 
             Book book2 = new Book();
+            book2.setIsbn("949300256-X");
+            book2.setPages(726);
+            book2.setGenre(GenreEnum.NOVAL);
+            book2.setPrice(77.45);;
             book2.setTitle("Java Persistence with Hibernate");
             book2.setDescription("Learn Hibernate for ORM");
             book2.setAuthor("Christian Bauer");
+
 
             //Add Books (in FakeRepository)
             Mockito.when(bookRepository.searchBooks("Spring")).thenReturn(Arrays.asList(book1));
