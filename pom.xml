@@ -102,6 +102,9 @@
       <plugin>
 				<groupId>io.gatling</groupId>
 				<artifactId>gatling-maven-plugin</artifactId>
+		  		<configuration>
+			  		<apiToken>a4LKFmHTEtx-MIck.jebEslVw86vejsDMq3IS434C5o_9z_DWId1LKQJdNnVkbFHM</apiToken>
+			  	</configuration>
 				<version>4.11.0</version>
 			</plugin>
 		</plugins>
