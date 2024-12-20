@@ -20,6 +20,8 @@ public class BookRepositoryUnitTest {
 
     @BeforeEach
     void setUp() {
+        bookRepository.deleteAll();
+
         Book book1 = new Book();
         book1.setIsbn("784827138-2");
         book1.setPages(938);
