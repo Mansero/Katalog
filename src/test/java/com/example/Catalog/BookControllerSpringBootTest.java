@@ -5,9 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClient;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -16,10 +20,14 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
 @Rollback
+@Testcontainers
 public class BookControllerSpringBootTest {
 
-    private RestClient restClient;
+    @Container
+    @ServiceConnection
+    private static PostgreSQLContainer postGresContainer = new PostgreSQLContainer("postgres:13.2");
 
+    private RestClient restClient;
 
     public BookControllerSpringBootTest(@LocalServerPort int port) {
         restClient = RestClient.create("http://localhost:" + port + "/api/");

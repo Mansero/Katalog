@@ -54,7 +54,6 @@ public class BookControllerWebMvcTest {
             book2.setDescription("Learn Hibernate for ORM");
             book2.setAuthor("Christian Bauer");
 
-
             //Add Books (in FakeRepository)
             Mockito.when(bookRepository.searchBooks("Spring")).thenReturn(Arrays.asList(book1));
 
