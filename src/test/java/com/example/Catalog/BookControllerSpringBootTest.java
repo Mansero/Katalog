@@ -21,12 +21,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
 @Rollback
-@Testcontainers
 public class BookControllerSpringBootTest {
-
-    @Container
-    @ServiceConnection
-    private static PostgreSQLContainer postGresContainer = new PostgreSQLContainer("postgres:13.2");
 
     private RestClient restClient;
 
