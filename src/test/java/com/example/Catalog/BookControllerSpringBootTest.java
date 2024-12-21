@@ -1,5 +1,6 @@
 package com.example.Catalog;
 
+import com.example.Catalog.enums.GenreEnum;
 import com.example.Catalog.model.Book;
 import org.junit.jupiter.api.Test;
 
@@ -38,23 +39,31 @@ public class BookControllerSpringBootTest {
     void testSearchBooks() throws Exception {
         // Create test books
         Book book1 = new Book();
+        book1.setIsbn("784827138-2");
+        book1.setPages(938);
+        book1.setGenre(GenreEnum.THRILLER);
+        book1.setPrice(74.95);;
         book1.setTitle("Spring Boot in Action");
         book1.setDescription("Comprehensive guide to Spring Boot");
         book1.setAuthor("Craig Walls");
-        book1.setIsbn("1234567");
 
         Book book2 = new Book();
+        book2.setIsbn("949300256-X");
+        book2.setPages(726);
+        book2.setGenre(GenreEnum.NOVAL);
+        book2.setPrice(77.45);;
         book2.setTitle("Java Persistence with Hibernate");
         book2.setDescription("Learn Hibernate for ORM");
         book2.setAuthor("Christian Bauer");
-        book2.setIsbn("12345678");
-
 
         Book book3 = new Book();
+        book3.setIsbn("259948000-0");
+        book3.setPages(254);
+        book3.setGenre(GenreEnum.FANTASY);
+        book3.setPrice(59.86);;
         book3.setTitle("Clean Code");
         book3.setDescription("Guide to writing clean code");
         book3.setAuthor("Robert C. Martin");
-        book3.setIsbn("123456789");
 
         // Add books via POST requests
         addBook(book1);
