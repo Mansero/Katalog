@@ -11,17 +11,16 @@ public class BookSearchGatlinTest extends Simulation {
 
     //Add Basic
     HttpProtocolBuilder httpProtocol =
-            http.baseUrl("http://localhost:8080")
-                    .acceptHeader("application/json")
-                    .contentTypeHeader("application/json");
+            http.baseUrl("http://localhost:8081")
+                   .acceptHeader("text/html")
+                   .contentTypeHeader("text/html");
 
     //Add Scenario
     ScenarioBuilder searchBookScenario = scenario("Search Book Scenario")
             .exec(http("Search Books Scenario")
-                    .get("/api/books/search")
+                    .get("/books/search")
                     .queryParam("searchTerm", "Java")
-                    .check(status().is(200))
-                    .check(jsonPath("$[0].title").exists()));
+                    .check(status().is(200)));
 
     //Add Testconfiguration
     {
