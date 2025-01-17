@@ -48,5 +48,17 @@ jobs:
           with:
             name: jacoco-report
             path: target/site/jacoco
+                    - name: Publish JaCoCo Report to GitHub Pages
+                    run: |
+                      git config --global user.name "github-actions[bot]"
+                      git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                      mkdir -p out && cp -r target/site/jacoco/* out/
+                      git init
+                      git checkout -b gh-pages
+                      git add out/*
+                      git commit -m "Publish JaCoCo Report"
+                      git remote add origin https://github.com/${{ github.repository }}.git
+                      git push --force origin gh-pages
+
       -   name: Display build status
           run: echo "Build completed successfully"
