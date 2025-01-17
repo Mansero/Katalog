@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Book.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">catalog</a> &gt; <a href="index.source.html" class="el_package">com.example.Catalog.model</a> &gt; <span class="el_source">Book.java</span></div><h1>Book.java</h1><pre class="source lang-java linenums">package com.example.Catalog.model;
+
+import com.example.Catalog.enums.GenreEnum;
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name=&quot;books&quot;)
+public class Book {
+
+    //Attribute
+    @Column(name = &quot;title&quot;)
+    String title;
+    @Column(name = &quot;author&quot;)
+    String author;
+    @Id
+    @Column(name = &quot;isbn&quot;)
+    String isbn;
+    @Column(name = &quot;pages&quot;)
+    int pages;
+    @Column(name = &quot;genre&quot;)
+    GenreEnum genre;
+    @Column(name = &quot;description&quot;)
+    String description;
+    @Column(name = &quot;price&quot;)
+    double price;
+
+    //Constructor
+<span class="nc" id="L29">    public Book(String title, String author, String isbn, int pages, GenreEnum genre, String description, double price) {</span>
+<span class="nc" id="L30">        this.title = title;</span>
+<span class="nc" id="L31">        this.author = author;</span>
+<span class="nc" id="L32">        this.isbn = isbn;</span>
+<span class="nc" id="L33">        this.pages = pages;</span>
+<span class="nc" id="L34">        this.genre = genre;</span>
+<span class="nc" id="L35">        this.description = description;</span>
+<span class="nc" id="L36">        this.price = price;</span>
+<span class="nc" id="L37">    }</span>
+
+<span class="fc" id="L39">    public Book() {</span>
+<span class="fc" id="L40">    }</span>
+
+    //Getter&amp;Setter
+    public String getTitle() {
+<span class="fc" id="L44">        return title;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="fc" id="L48">        this.title = title;</span>
+<span class="fc" id="L49">    }</span>
+
+    public String getAuthor() {
+<span class="fc" id="L52">        return author;</span>
+    }
+
+    public void setAuthor(String author) {
+<span class="fc" id="L56">        this.author = author;</span>
+<span class="fc" id="L57">    }</span>
+
+    public String getIsbn() {
+<span class="fc" id="L60">        return isbn;</span>
+    }
+
+    public void setIsbn(String isbn) {
+<span class="fc" id="L64">        this.isbn = isbn;</span>
+<span class="fc" id="L65">    }</span>
+
+    public int getPages() {
+<span class="fc" id="L68">        return pages;</span>
+    }
+
+    public void setPages(int pages) {
+<span class="fc" id="L72">        this.pages = pages;</span>
+<span class="fc" id="L73">    }</span>
+
+    public GenreEnum getGenre() {
+<span class="fc" id="L76">        return genre;</span>
+    }
+
+    public void setGenre(GenreEnum genre) {
+<span class="fc" id="L80">        this.genre = genre;</span>
+<span class="fc" id="L81">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L84">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L88">        this.description = description;</span>
+<span class="fc" id="L89">    }</span>
+
+    public double getPrice() {
+<span class="fc" id="L92">        return price;</span>
+    }
+
+    public void setPrice(double price) {
+<span class="fc" id="L96">        this.price = price;</span>
+<span class="fc" id="L97">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
