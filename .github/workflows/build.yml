@@ -50,14 +50,30 @@ jobs:
             path: target/site/jacoco
       -   name: Publish JaCoCo Report to GitHub Pages
           run: |
+            # Ensure git is properly configured
             git config --global user.name "github-actions[bot]"
             git config --global user.email "github-actions[bot]@users.noreply.github.com"
+  
+            # Prepare the output directory
             mkdir -p out && cp -r target/site/jacoco/* out/
+  
+            # Initialize a new git repository
+            cd out
             git init
             git checkout -b gh-pages
-            git add out/*
+  
+            # Check if the remote already exists
+            if git remote get-url origin; then
+              git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            else
+              git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            fi
+  
+            # Add and commit the report
+            git add .
             git commit -m "Publish JaCoCo Report"
-            git remote add origin https://github.com/${{ github.repository }}.git
+  
+            # Force push to the gh-pages branch
             git push --force origin gh-pages
 
       -   name: Display build status
