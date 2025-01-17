@@ -14,7 +14,7 @@ public class BookPlayWrightTest {
                 Page page = browser.newPage();
 
                 //Create Request
-                page.navigate("http://localhost:8081");
+                page.navigate("http://localhost:8081/books/search");
                 page.fill("input[name='searchTerm']", "Spring Boot in Action");
                 page.click("button[type='submit']");
 
