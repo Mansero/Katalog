@@ -110,7 +110,7 @@
 		  		<configuration>
 			  		<apiToken>rbhqTE-YzSwBvNBoQ4CY8PdtCiaxcUnq6BfH-pnNRwKK4_GvwWe3v-Qrr3nBbfY2z</apiToken>
 			  	</configuration>
-				<version>4.11.0</version>
+				<version>4.14.0</version>
 			</plugin>
 		</plugins>
 	</build>
